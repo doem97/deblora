@@ -3,7 +3,7 @@ Source code for "De-Biased Representation Learning for Long-tailed PEFT in Remot
 ## 🛠️ Installation
 Clone the repository
 ```bash
-git clone https://github.com/your-username/deblora.git
+git clone https://github.com/doem97/deblora.git
 ```
 
 ### Dataset Setup

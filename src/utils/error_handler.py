@@ -5,8 +5,8 @@ import pdb
 
 
 def send_telegram_notification(message):
-    bot_token = "7254878605:AAGHLOnoaj8W3oGUl-BbWlywnuSXSOWKOb0"
-    chat_id = "6148817210"
+    bot_token = ""
+    chat_id = ""
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
     payload = {"chat_id": chat_id, "text": message}
     try:
