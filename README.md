@@ -26,23 +26,6 @@ ln -s /path/to/datasets/dotav1 ./data/dotav1
 ln -s /path/to/datasets/fusrs ./data/fusrs
 ```
 
-
-Final folder structure:
-```
-|-- clsar
-|-- datasets
-|   |-- dosrs_v1
-|   |-- fusrs_v2
-|   `-- README.md
-`-- gensar
-    |-- controlnet
-    |-- evaluation
-    |-- finetune
-    |-- gen_prompt
-    |-- inference
-    `-- lora
-```
-
 See [Datasets Documentation](datasets/README.md) for more details.
 
 ### Environment Setup
