@@ -173,22 +173,10 @@ SPair-71k/
 ./guided-diffusion/models/256x256_diffusion_uncond.pt
 
 # USER-DEFINED
-# Common directories for datasets and logs in CV projects
-data/
-# logs/
-models/
-outputs/
-
 # Other
 # *.log
 .DS_Store
 
-.data/
-.output/
-.data
-.output
-/data
-/output
 diffusers/
 diffusers
 

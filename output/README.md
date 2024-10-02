@@ -1,0 +1,1 @@
+Output (as well as intermediate results, logs, etc.) will be automatically saved in `./output` folder.
