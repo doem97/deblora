@@ -1,0 +1,215 @@
+HDBSCAN
+class cuml.cluster.hdbscan.HDBSCAN(*, min_cluster_size=5, min_samples=None, cluster_selection_epsilon=0.0, max_cluster_size=0, metric='euclidean', alpha=1.0, p=2, cluster_selection_method='eom', allow_single_cluster=False, gen_min_span_tree=False, handle=None, verbose=False, connectivity='knn', output_type=None, prediction_data=False)
+HDBSCAN Clustering
+
+Recursively merges the pair of clusters that minimally increases a given linkage distance.
+
+Note that while the algorithm is generally deterministic and should provide matching results between RAPIDS and the Scikit-learn Contrib versions, the construction of the k-nearest neighbors graph and minimum spanning tree can introduce differences between the two algorithms, especially when several nearest neighbors around a point might have the same distance. While the differences in the minimum spanning trees alone might be subtle, they can (and often will) lead to some points being assigned different cluster labels between the two implementations.
+
+Parameters:
+handlecuml.Handle
+Specifies the cuml.handle that holds internal CUDA state for computations in this model. Most importantly, this specifies the CUDA stream that will be used for the model’s computations, so users can run different models concurrently in different streams by creating handles in several streams. If it is None, a new one is created.
+
+alphafloat, optional (default=1.0)
+A distance scaling parameter as used in robust single linkage.
+
+verboseint or boolean, default=False
+Sets logging level. It must be one of cuml.common.logger.level_*. See Verbosity Levels for more info.
+
+min_cluster_sizeint, optional (default = 5)
+The minimum number of samples in a group for that group to be considered a cluster; groupings smaller than this size will be left as noise.
+
+min_samplesint, optional (default=None)
+The number of samples in a neighborhood for a point to be considered as a core point. This includes the point itself. If ‘None’, it defaults to the min_cluster_size.
+
+cluster_selection_epsilonfloat, optional (default=0.0)
+A distance threshold. Clusters below this value will be merged. Note that this should not be used if we want to predict the cluster labels for new points in future (e.g. using approximate_predict), as the approximate_predict function is not aware of this argument.
+
+max_cluster_sizeint, optional (default=0)
+A limit to the size of clusters returned by the eom algorithm. Has no effect when using leaf clustering (where clusters are usually small regardless) and can also be overridden in rare cases by a high value for cluster_selection_epsilon. Note that this should not be used if we want to predict the cluster labels for new points in future (e.g. using approximate_predict), as the approximate_predict function is not aware of this argument.
+
+metricstring or callable, optional (default=’euclidean’)
+The metric to use when calculating distance between instances in a feature array. If metric is a string or callable, it must be one of the options allowed by metrics.pairwise.pairwise_distances for its metric parameter. If metric is “precomputed”, X is assumed to be a distance matrix and must be square.
+
+pint, optional (default=2)
+p value to use if using the minkowski metric.
+
+cluster_selection_methodstring, optional (default=’eom’)
+The method used to select clusters from the condensed tree. The standard approach for HDBSCAN* is to use an Excess of Mass algorithm to find the most persistent clusters. Alternatively you can instead select the clusters at the leaves of the tree – this provides the most fine grained and homogeneous clusters. Options are:
+
+eom
+
+leaf
+
+allow_single_clusterbool, optional (default=False)
+By default HDBSCAN* will not produce a single cluster, setting this to True will override this and allow single cluster results in the case that you feel this is a valid result for your dataset.
+
+gen_min_span_treebool, optional (default=False)
+Whether to populate the minimum_spanning_tree_ member for utilizing plotting tools. This requires the hdbscan CPU Python package to be installed.
+
+gen_condensed_treebool, optional (default=False)
+Whether to populate the condensed_tree_ member for utilizing plotting tools. This requires the hdbscan CPU Python package to be installed.
+
+gen_single_linkage_tree_bool, optional (default=False)
+Whether to populate the single_linkage_tree_ member for utilizing plotting tools. This requires the hdbscan CPU Python package t be installed.
+
+output_type{‘input’, ‘array’, ‘dataframe’, ‘series’, ‘df_obj’, ‘numba’, ‘cupy’, ‘numpy’, ‘cudf’, ‘pandas’}, default=None
+Return results and set estimator attributes to the indicated output type. If None, the output type set at the module level (cuml.global_settings.output_type) will be used. See Output Data Type Configuration for more info.
+
+prediction_databool, optional (default=False)
+Whether to generate extra cached data for predicting labels or membership vectors few new unseen points later. If you wish to persist the clustering object for later re-use you probably want to set this to True.
+
+Attributes:
+labels_
+ndarray, shape (n_samples, )
+Cluster labels for each point in the dataset given to fit(). Noisy samples are given the label -1.
+
+probabilities_
+ndarray, shape (n_samples, )
+The strength with which each sample is a member of its assigned cluster. Noise points have probability zero; points in clusters have values assigned proportional to the degree that they persist as part of the cluster.
+
+cluster_persistence_
+ndarray, shape (n_clusters, )
+A score of how persistent each cluster is. A score of 1.0 represents a perfectly stable cluster that persists over all distance scales, while a score of 0.0 represents a perfectly ephemeral cluster. These scores can be used to gauge the relative coherence of the clusters output by the algorithm.
+
+condensed_tree_
+CondensedTree object
+The condensed tree produced by HDBSCAN. The object has methods for converting to pandas, networkx, and plotting.
+
+single_linkage_tree_
+SingleLinkageTree object
+The single linkage tree produced by HDBSCAN. The object has methods for converting to pandas, networkx, and plotting.
+
+minimum_spanning_tree_
+MinimumSpanningTree object
+The minimum spanning tree of the mutual reachability graph generated by HDBSCAN. Note that this is not generated by default and will only be available if gen_min_span_tree was set to True on object creation. Even then in some optimized cases a tree may not be generated.
+
+Methods
+
+fit(X[, y, convert_dtype])
+
+Fit HDBSCAN model from features.
+
+fit_predict(X[, y])
+
+Fit the HDBSCAN model from features and return
+
+generate_prediction_data()
+
+Create data that caches intermediate results used for predicting the label of new/unseen points.
+
+get_param_names()
+
+Returns a list of hyperparameter names owned by this class.
+
+build_minimum_spanning_tree
+
+get_attr_names
+
+fit(X, y=None, convert_dtype=True) → HDBSCAN[source]
+Fit HDBSCAN model from features.
+
+Parameters
+:
+X
+array-like (device or host) shape = (n_samples, n_features)
+Dense matrix. If datatype is other than floats or doubles, then the data will be converted to float which increases memory utilization. Set the parameter convert_dtype to False to avoid this, then the method will throw an error instead. Acceptable formats: CUDA array interface compliant objects like CuPy, cuDF DataFrame/Series, NumPy ndarray and Pandas DataFrame/Series.
+
+y
+array-like (device or host) shape = (n_samples, 1)
+Dense matrix. If datatype is other than floats or doubles, then the data will be converted to float which increases memory utilization. Set the parameter convert_dtype to False to avoid this, then the method will throw an error instead. Acceptable formats: CUDA array interface compliant objects like CuPy, cuDF DataFrame/Series, NumPy ndarray and Pandas DataFrame/Series.
+
+convert_dtype
+bool, optional (default = True)
+When set to True, the train method will, when necessary, convert y to be the same data type as X if they differ. This will increase memory used for the method.
+
+fit_predict(X, y=None) → CumlArray[source]
+Fit the HDBSCAN model from features and return cluster labels.
+
+Parameters:
+X
+array-like (device or host) shape = (n_samples, n_features)
+Dense matrix. If datatype is other than floats or doubles, then the data will be converted to float which increases memory utilization. Set the parameter convert_dtype to False to avoid this, then the method will throw an error instead. Acceptable formats: CUDA array interface compliant objects like CuPy, cuDF DataFrame/Series, NumPy ndarray and Pandas DataFrame/Series.
+
+y
+array-like (device or host) shape = (n_samples, 1)
+Dense matrix. If datatype is other than floats or doubles, then the data will be converted to float which increases memory utilization. Set the parameter convert_dtype to False to avoid this, then the method will throw an error instead. Acceptable formats: CUDA array interface compliant objects like CuPy, cuDF DataFrame/Series, NumPy ndarray and Pandas DataFrame/Series.
+
+Returns:
+predscuDF, CuPy or NumPy object depending on cuML’s output type configuration, shape = (n_samples, 1)
+Cluster indexes
+
+For more information on how to configure cuML’s output type, refer to: Output Data Type Configuration.
+
+generate_prediction_data()[source]
+Create data that caches intermediate results used for predicting the label of new/unseen points. This data is only useful if you are intending to use functions from hdbscan.prediction.
+
+get_param_names()[source]
+Returns a list of hyperparameter names owned by this class. It is expected that every child class overrides this method and appends its extra set of parameters that it in-turn owns. This is to simplify the implementation of get_params and set_params methods.
+
+cuml.cluster.hdbscan.all_points_membership_vectors(clusterer, batch_size=4096)[source]
+Predict soft cluster membership vectors for all points in the original dataset the clusterer was trained on. This function is more efficient by making use of the fact that all points are already in the condensed tree, and processing in bulk.
+
+Parameters
+:
+clusterer
+HDBSCAN
+A clustering object that has been fit to the data and had prediction_data=True set.
+
+batch_size
+int, optional, default=min(4096, n_rows)
+Lowers memory requirement by computing distance-based membership in smaller batches of points in the training data. For example, a batch size of 1,000 computes distance based memberships for 1,000 points at a time. The default batch size is 4,096.
+
+Returns
+:
+membership_vectors
+array (n_samples, n_clusters)
+The probability that point i of the original dataset is a member of cluster j is in membership_vectors[i, j].
+
+cuml.cluster.hdbscan.membership_vector(clusterer, points_to_predict, batch_size=4096, convert_dtype=True)[source]
+Predict soft cluster membership. The result produces a vector for each point in points_to_predict that gives a probability that the given point is a member of a cluster for each of the selected clusters of the clusterer.
+
+Parameters
+:
+clusterer
+HDBSCAN
+A clustering object that has been fit to the data and either had prediction_data=True set, or called the generate_prediction_data method after the fact.
+
+points_to_predict
+array, or array-like (n_samples, n_features)
+The new data points to predict cluster labels for. They should have the same dimensionality as the original dataset over which clusterer was fit.
+
+batch_size
+int, optional, default=min(4096, n_points_to_predict)
+Lowers memory requirement by computing distance-based membership in smaller batches of points in the prediction data. For example, a batch size of 1,000 computes distance based memberships for 1,000 points at a time. The default batch size is 4,096.
+
+Returns
+:
+membership_vectors
+array (n_samples, n_clusters)
+The probability that point i is a member of cluster j is in membership_vectors[i, j].
+
+cuml.cluster.hdbscan.approximate_predict(clusterer, points_to_predict, convert_dtype=True)[source]
+Predict the cluster label of new points. The returned labels will be those of the original clustering found by clusterer, and therefore are not (necessarily) the cluster labels that would be found by clustering the original data combined with points_to_predict, hence the ‘approximate’ label.
+
+If you simply wish to assign new points to an existing clustering in the ‘best’ way possible, this is the function to use. If you want to predict how points_to_predict would cluster with the original data under HDBSCAN the most efficient existing approach is to simply recluster with the new point(s) added to the original dataset.
+
+Parameters
+:
+clusterer
+HDBSCAN
+A clustering object that has been fit to the data and had prediction_data=True set.
+
+points_to_predict
+array, or array-like (n_samples, n_features)
+The new data points to predict cluster labels for. They should have the same dimensionality as the original dataset over which clusterer was fit.
+
+Returns
+:
+labels
+array (n_samples,)
+The predicted labels of the points_to_predict
+
+probabilities
+array (n_samples,)
+The soft cluster scores for each of the points_to_predict
