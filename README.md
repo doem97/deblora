@@ -45,9 +45,6 @@ To set up the deblora environment, follow these steps:
 
 ## 🚀 Usage
 
-**Note: Due to CVPR'25 tight workload, code preparation and releasing for this repo is still pending. We appreciate your patience.**
-
-
 Execute the following command to run the deblora:
 
 **Feature Extraction and Clustering**:

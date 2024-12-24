@@ -1,0 +1,3 @@
+dataset: "iNaturalist2018"
+root: "./data/inat2018"
+head_init_folder: "./data/inat2018"

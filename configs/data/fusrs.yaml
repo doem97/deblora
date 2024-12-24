@@ -1,0 +1,4 @@
+dataset: "FUSRS"
+root: "./data/fusrs"
+head_init_folder: "./data/fusrs"
+

@@ -1,0 +1,3 @@
+dataset: "Places_LT"
+root: "./data/places_lt"
+head_init_folder: "./data/places_lt"

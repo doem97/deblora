@@ -1,0 +1,3 @@
+dataset: "DOTA"
+root: "./data/dota"
+head_init_folder: "./data/dota"
