@@ -45,14 +45,9 @@ To set up the deblora environment, follow these steps:
 
 ## 🚀 Usage
 
-Execute the following command to run the deblora:
+Execute the following command to run the debLoRA:
 
 **Feature Extraction and Clustering**:
    ```bash
    bash ./feat_cluster_lora_kmeans.sh
-   ```
-
-**Feature Calibration and Linear Probing**:
-   ```bash
-   # Feature Calibration scripts and pipelines are under preparation
    ```
