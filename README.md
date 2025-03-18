@@ -20,7 +20,7 @@ The folder structure should be like:
 `-- README.md
 ```
 
-Please download datasets following [huggingface-cli script](./output/features/hf_features.sh) and symbol link to `./data` folder. See [Datasets Documentation](datasets/README.md) for more details.
+Please download datasets with [huggingface-cli script](./output/features/hf_features.sh) and symbol link to `./data` folder. See [Datasets Documentation](datasets/README.md) for more details.
 
 ### Environment Setup
 
@@ -49,7 +49,7 @@ bash ./exp/extract_finetune_feat.sh
 bash ./exp/extract_lora_feat.sh
 ```
 
-> For easy re-produce, we also provided the ready-to-use extracted features (download links in `./output/features/hf_features.sh`). You could directly download the 0shot/fine-tuned/LoRA/pLoRA features by executing the script.
+> For easy re-produce, we also provided the ready-to-use extracted features (download links in [hf_features.sh](./output/features/hf_features.sh)). You could directly download the 0shot/fine-tuned/LoRA/pLoRA features by executing the script.
 
 **Linear probing for 0 Shot**:
 
