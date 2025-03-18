@@ -20,13 +20,7 @@ The folder structure should be like:
 `-- README.md
 ```
 
-Please download datasets DOTAv1 and FUSRS following [Datasets Documentation](data/README.md) and symbol link to `./data` folder like:
-```
-ln -s /path/to/datasets/dotav1 ./data/dotav1
-ln -s /path/to/datasets/fusrs ./data/fusrs
-```
-
-See [Datasets Documentation](datasets/README.md) for more details.
+Please download datasets following [huggingface-cli script](./output/features/hf_features.sh) and symbol link to `./data` folder. See [Datasets Documentation](datasets/README.md) for more details.
 
 ### Environment Setup
 
@@ -49,9 +43,10 @@ To set up the deblora environment, follow these steps:
 
 ```bash
 # feature extraction for 0 shot and fine-tuned
-python ./scripts/dota_extract_feat_mid.py
+bash ./exp/extract_0shot_feat.sh
+bash ./exp/extract_finetune_feat.sh
 # feature extraction for LoRA (feature calibration source for pLoRA)
-python ./scripts/dota_extract_feat_mid+lora.py
+bash ./exp/extract_lora_feat.sh
 ```
 
 > For easy re-produce, we also provided the ready-to-use extracted features (download links in `./output/features/hf_features.sh`). You could directly download the 0shot/fine-tuned/LoRA/pLoRA features by executing the script.
@@ -77,7 +72,7 @@ bash ./exp/lora_linprob.sh
 **Feature clustering and calibration for pLoRA**:
 
 ```bash
-bash ./feat_cluster_lora_kmeans.sh
+bash ./exp/feat_cluster_lora_kmeans.sh
 ```
 
 **Linear probing for pLoRA**:
