@@ -80,5 +80,3 @@ bash ./exp/feat_cluster_lora_kmeans.sh
 ```bash
 bash ./exp/plora_linprob.sh
 ```
-
-<img src="https://doem1997.goatcounter.com/count?p=deblora-readme"/>
