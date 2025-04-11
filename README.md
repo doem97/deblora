@@ -81,4 +81,4 @@ bash ./exp/feat_cluster_lora_kmeans.sh
 bash ./exp/plora_linprob.sh
 ```
 
-<img src="https://visitor-badge.glitch.me/badge?page_id=doem97.deblora" width="0" height="0" alt="" />
+<img src="https://myproject.goatcounter.com/count?p=/test-img" alt="" width="0" height="0" />
