@@ -80,3 +80,5 @@ bash ./exp/feat_cluster_lora_kmeans.sh
 ```bash
 bash ./exp/plora_linprob.sh
 ```
+
+Please note that the current code may be poorly organized and is in separate modules. The remaining CLIP code and data will be released in our upcoming work Meta-LoRA (https://github.com/doem97/metalora) with more streamlined pipelines. Please do not hesitate to raise repo issues if you have problems.
