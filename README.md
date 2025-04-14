@@ -20,7 +20,7 @@ The folder structure should be like:
 `-- README.md
 ```
 
-Please download datasets with [huggingface-cli script](./output/features/hf_features.sh) and symbol link to `./data` folder. See [Datasets Documentation](datasets/README.md) for more details.
+Please download datasets with [huggingface-cli script](./output/features/hf_features.sh) and symbol link to `./data` folder. See [Datasets Documentation](data/README.md) for more details.
 
 ### Environment Setup
 
