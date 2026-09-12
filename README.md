@@ -1,4 +1,18 @@
-Source code for "De-Biased Representation Learning for Long-tailed PEFT in Remote Sensing".
+# debLoRA: Learning De-Biased Representations for Remote-Sensing Imagery
+
+**NeurIPS 2024** &ensp;|&ensp; **Zichen Tian**, **Zhaozheng Chen**, **Qianru Sun** &ensp;|&ensp; *Singapore Management University*
+
+<p>
+  <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/6a8e10164a90d5c3660c3949289f969a-Abstract-Conference.html">
+    <img src="https://img.shields.io/badge/📄%20Paper-NeurIPS%202024-8c1b13?style=flat-square" alt="Paper">
+  </a>
+  <a href="https://arxiv.org/abs/2410.04546">
+    <img src="https://img.shields.io/badge/📝%20ArXiv-2410.04546-b31b1b?style=flat-square" alt="ArXiv">
+  </a>
+</p>
+
+Official implementation of **debLoRA** from the paper **"Learning De-Biased Representations for Remote-Sensing Imagery"** (NeurIPS 2024).
+
 
 ## 🛠️ Installation & Setup
 Clone the repository
@@ -82,3 +96,22 @@ bash ./exp/plora_linprob.sh
 ```
 
 Please note that the current code may be poorly organized and is in separate modules. The remaining CLIP code and data will be released in our upcoming work Meta-LoRA (https://github.com/doem97/metalora) with more streamlined pipelines. Please do not hesitate to raise repo issues if you have problems.
+
+## ✍️ Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@inproceedings{NEURIPS2024_6a8e1016,
+ author = {Tian, Zichen and Chen, Zhaozheng and Sun, Qianru},
+ booktitle = {Advances in Neural Information Processing Systems},
+ doi = {10.52202/079017-1848},
+ editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+ pages = {57970--57992},
+ publisher = {Curran Associates, Inc.},
+ title = {Learning De-Biased Representations for Remote-Sensing Imagery},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/6a8e10164a90d5c3660c3949289f969a-Paper-Conference.pdf},
+ volume = {37},
+ year = {2024}
+}
+```
