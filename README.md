@@ -4,7 +4,7 @@
 
 <p>
   <a href="https://www.doem1997.com/deblora/">
-    <img src="https://img.shields.io/badge/Project_Page-doem1997.com-0f5fb3" alt="Project Page">
+    <img src="https://img.shields.io/badge/Project_Page-doem1997.com-0f5fb3?style=flat-square" alt="Project Page">
   </a>
   <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/6a8e10164a90d5c3660c3949289f969a-Abstract-Conference.html">
     <img src="https://img.shields.io/badge/📄%20Paper-NeurIPS%202024-8c1b13?style=flat-square" alt="Paper">
