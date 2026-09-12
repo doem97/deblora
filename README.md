@@ -3,6 +3,9 @@
 **NeurIPS 2024** &ensp;|&ensp; **Zichen Tian**, **Zhaozheng Chen**, **Qianru Sun** &ensp;|&ensp; *Singapore Management University*
 
 <p>
+  <a href="https://www.doem1997.com/deblora/">
+    <img src="https://img.shields.io/badge/Project_Page-doem1997.com-0f5fb3" alt="Project Page">
+  </a>
   <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/6a8e10164a90d5c3660c3949289f969a-Abstract-Conference.html">
     <img src="https://img.shields.io/badge/📄%20Paper-NeurIPS%202024-8c1b13?style=flat-square" alt="Paper">
   </a>
@@ -12,6 +15,10 @@
 </p>
 
 Official implementation of **debLoRA** from the paper **"Learning De-Biased Representations for Remote-Sensing Imagery"** (NeurIPS 2024).
+
+Formerly circulated as "De-Biased Representation Learning for Long-tailed PEFT in Remote Sensing"; the published NeurIPS 2024 title is "Learning De-Biased Representations for Remote-Sensing Imagery".
+
+Project page with PDF, BibTeX and results: https://www.doem1997.com/deblora/
 
 
 ## 🛠️ Installation & Setup
@@ -115,3 +122,7 @@ If you find this work useful, please cite:
  year = {2024}
 }
 ```
+
+---
+
+<sub><b>Keywords:</b> debLoRA, de-biased LoRA, long-tailed LoRA, remote sensing foundation model adaptation, SAR, DOTA, FUSRS, class imbalance, parameter-efficient fine-tuning, NeurIPS 2024</sub>

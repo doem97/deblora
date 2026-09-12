@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+title: "debLoRA: Learning De-Biased Representations for Remote-Sensing Imagery"
+message: "If you use this software, please cite the paper below."
+type: software
+authors:
+  - given-names: Zichen
+    family-names: Tian
+    affiliation: Singapore Management University
+  - given-names: Zhaozheng
+    family-names: Chen
+    affiliation: Singapore Management University
+  - given-names: Qianru
+    family-names: Sun
+    affiliation: Singapore Management University
+repository-code: "https://github.com/doem97/deblora"
+url: "https://www.doem1997.com/deblora/"
+preferred-citation:
+  type: conference-paper
+  title: "Learning De-Biased Representations for Remote-Sensing Imagery"
+  authors:
+    - given-names: Zichen
+      family-names: Tian
+    - given-names: Zhaozheng
+      family-names: Chen
+    - given-names: Qianru
+      family-names: Sun
+  collection-title: "Advances in Neural Information Processing Systems"
+  collection-type: proceedings
+  volume: 37
+  year: 2024
+  month: 12
+  start: 57970
+  end: 57992
+  doi: "10.52202/079017-1848"
+  publisher:
+    name: "Curran Associates, Inc."
+  url: "https://proceedings.neurips.cc/paper_files/paper/2024/hash/6a8e10164a90d5c3660c3949289f969a-Abstract-Conference.html"
+  identifiers:
+    - type: doi
+      value: "10.52202/079017-1848"
+    - type: other
+      value: "arXiv:2410.04546"
+keywords:
+  - deblora
+  - de-biased lora
+  - long-tailed lora
+  - remote sensing
+  - remote sensing foundation model
+  - sar
+  - dota
+  - fusrs
+  - class imbalance
+  - long-tailed learning
+  - lora
+  - low-rank adaptation
+  - parameter-efficient fine-tuning
+  - peft
+  - neurips 2024
